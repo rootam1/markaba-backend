@@ -1,4 +1,5 @@
 require('dotenv').config();
+console.log('MONGO_URI =', process.env.MONGO_URI);
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -18,5 +19,5 @@ mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   ssl: true,
-  sslValidate: false
+  tlsAllowInvalidCertificates: true, // بدل sslValidate
 });
